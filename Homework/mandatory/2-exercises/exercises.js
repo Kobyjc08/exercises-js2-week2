@@ -14,7 +14,15 @@
  * </div>
  */
 function exerciseOne(arrayOfPeople) {
-  let content = document.querySelector("#content");
+    let content = document.querySelector("#content");
+    for (let i = 0; i < arrayOfPeople.length; i++) {
+        let h1 = document.createElement("h1");
+        let h2 = document.createElement("h2");
+        content.appendChild(h1);
+        content.appendChild(h2);
+        h1.innerHTML = arrayOfPeople[i].name;
+        h2.innerHTML = arrayOfPeople[i].job;;
+    }
 }
 
 /**
@@ -25,7 +33,15 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+    let content = document.querySelector("#content");
+    let ul = document.createElement("ul");
+    for (let i = 0; i < shopping.length; i++) {
+        let li = document.createElement("li");
+        content.appendChild(ul);
+        ul.appendChild(li);
+        li.innerHTML = shopping[i];
+
+    }
 }
 
 /**
@@ -57,13 +73,50 @@ function exerciseTwo(shopping) {
 
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
-function exerciseThree(books) {
-  //Write your code in here
-}
 
+function exerciseThree(books) {
+    let content = document.querySelector("#content");
+    let ul = document.createElement("ul");
+    ul.style.flexDirection = "column";
+    for (let i = 0; i < shopping.length; i++) {
+        let li = document.createElement("li");
+        let p = document.createElement("p")
+        content.appendChild(ul);
+        ul.appendChild(li);
+        li.appendChild(p);
+        p.innerHTML = books[i].title + " - " + books[i].author;
+        if (books[i].alreadyRead === true) {
+            p.style.backgroundColor = "green";
+        } else {
+            p.style.backgroundColor = "red";
+        }
+        let img = document.createElement("img");
+        p.appendChild(img);
+        if (books.title === "The Design of Everyday Things") {
+            img.src = "https://images-na.ssl-images-amazon.com/images/I/410RTQezHYL._SY291_BO1,204,203,200_QL40_ML2_.jpg";
+        } else if (books.title === "The Most Human Human") {
+            img.src = "https://images-na.ssl-images-amazon.com/images/I/71HMyqG6MRL.jpg";
+        } else if (books.title === "The Pragmatic Programmer") {
+            img.src = "https://images-na.ssl-images-amazon.com/images/I/41uPjEenkFL._SX342_QL70_ML2_.jpg"
+        }
+    }
+}
 //
-//
-//
+/*
+switch (books.title) {
+  case "The Design of Everyday Things":
+      img.src = "https://images-na.ssl-images-amazon.com/images/I/410RTQezHYL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+      break;
+  case "The Most Human Human":
+      img.src = "https://images-na.ssl-images-amazon.com/images/I/71HMyqG6MRL.jpg"
+      break;
+  case "The Pragmatic Programmer":
+      img.src = "https://images-na.ssl-images-amazon.com/images/I/41uPjEenkFL._SX342_QL70_ML2_.jpg"
+      break;
+  default:
+      break;
+}
+*/
 //
 // DO NOT EDIT BELOW HERE
 //
@@ -72,9 +125,9 @@ function exerciseThree(books) {
 //
 
 let people = [
-  { name: "Chris", job: "Teacher" },
-  { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
+    { name: "Chris", job: "Teacher" },
+    { name: "Joanna", job: "Student" },
+    { name: "Boris", job: "Prime Minister" }
 ];
 
 exerciseOne(people);
@@ -83,22 +136,21 @@ let shopping = ["Milk", "Break", "Eggs", "A Dinosaur", "Cake", "Sugar", "Tea"];
 
 exerciseTwo(shopping);
 
-const books = [
-  {
-    title: "The Design of Everyday Things",
-    author: "Don Norman",
-    alreadyRead: false
-  },
-  {
-    title: "The Most Human Human",
-    author: "Brian Christian",
-    alreadyRead: true
-  },
-  {
-    title: "The Pragmatic Programmer",
-    author: "Andrew Hunt",
-    alreadyRead: true
-  }
+const books = [{
+        title: "The Design of Everyday Things",
+        author: "Don Norman",
+        alreadyRead: false
+    },
+    {
+        title: "The Most Human Human",
+        author: "Brian Christian",
+        alreadyRead: true
+    },
+    {
+        title: "The Pragmatic Programmer",
+        author: "Andrew Hunt",
+        alreadyRead: true
+    }
 ];
 
 exerciseThree(books);
